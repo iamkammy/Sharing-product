@@ -1,16 +1,24 @@
 const router = require('express').Router();
 const auth = require('../middleware/userAuth');
 const User = require('../models/user');
+const Vendor = require('../models/vendor');
 router.post('/', auth, async(req, res) => {
     try {
         req.user.products = req.user.products.concat(req.body);
         await req.user.save();
+        let vendors = await Vendor.find();
+        
+        vendors = vendors.map((vendor)=>{
+            if(vendor.category.includes(req.body.subCategory)){
+                vendor.products.push(req.body);
+            }
+        })
         res.status(200).json({ status: 'success', message: 'Successfully inserted.' });
     } catch (e) {
         res.status(500).json({ status: 'Failure', message: e.message });
     }
 });
-router.get('/getProducts', auth, async(req, res) => {
+router.get('/getProducts', auth, async (req, res) => {
     try {
         const { _id } = req.user;
         const { products } = await User.findById(_id);

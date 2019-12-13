@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const config = require('../../environment/environment');
 
 const User = require('../models/user');
-
+const ProductSchema = require('./product');
 const VendorSchema = new Schema({
     companyName : 
     {
@@ -55,6 +55,7 @@ const VendorSchema = new Schema({
             type : String,
             required : true
      }],
+     products: [ProductSchema],
      deviceId: {
         type: String,
         required: true
@@ -109,20 +110,20 @@ VendorSchema.static('findByPhone', async function(phone){
 });
 
 
-VendorSchema.static('getProducts', async function(){
-    const vendor  =  this;
-    let temp = [];
-    let vcategory = ['phone'];
-    console.log(vcategory);
-    const users = await User.find();
-        users.map((user) => {
-            if( vcategory.includes(user.products.subCategory)){
-             temp.push(user.products.subCategory);
-            }
-         })
+// VendorSchema.static('getProducts', async function(){
+//     const vendor  =  this;
+//     let temp = [];
+//     let vcategory = ['phone'];
+//     console.log(vcategory);
+//     const users = await User.find();
+//         users.map((user) => {
+//             if( vcategory.includes(user.products.subCategory)){
+//              temp.push(user.products.subCategory);
+//             }
+//          })
     
-    return temp;
-})
+//     return temp;
+// })
 // hash pasword
 VendorSchema.pre('save', async function(next) {
     const vendor = this;

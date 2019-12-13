@@ -17,6 +17,10 @@ const ProductSchema = new Schema({
     url: {
         type: String
     },
+    price : {
+        type : Number,
+        default: 0
+    },
     latitude: {
         type: String,
         required: true

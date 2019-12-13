@@ -37,17 +37,17 @@ router.post('/logout', auth, async (req, res, next)=>{
     }
 })
 
-router.get('/productlist', async (req, res)=>{
-    try {
-        let vendor = await Vendor.findByPhone(req.body.phone);
-        console.log(vendor);
-        const lo = await Vendor.getProducts(vendor._id);
-        console.log(lo);
-        res.status(200).json(lo);
-    } catch (e) {
-        res.status(400).json({status: 'blast',error : e})
-    }
-})
+// router.get('/productlist', async (req, res)=>{
+//     try {
+//         let vendor = await Vendor.findByPhone(req.body.phone);
+//         console.log(vendor);
+//         const lo = await Vendor.getProducts(vendor._id);
+//         console.log(lo);
+//         res.status(200).json(lo);
+//     } catch (e) {
+//         res.status(400).json({status: 'blast',error : e})
+//     }
+// })
 router.get('/:phone', async (req, res)=> {
     try{
         await Vendor.findByPhone(req.params.phone);
