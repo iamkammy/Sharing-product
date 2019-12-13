@@ -1,0 +1,25 @@
+[{
+        "name": "flipkart",
+        "imageUrl": "/images/logo/flipkart_logo.png",
+        "packageName": "com.flipkart.android",
+        "status": true
+    },
+    {
+        "name": "amazon",
+        "imageUrl": "/images/logo/amazon_logo.png",
+        "packageName": "in.amazon.mShop.android.shopping",
+        "status": true
+    },
+    {
+        "name": "snapdeal",
+        "imageUrl": "/images/logo/snapdeal_logo.png",
+        "packageName": "com.snapdeal.main",
+        "status": true
+    },
+    {
+        "name": "myntra",
+        "imageUrl": "/images/logo/myntra_logo.png",
+        "packageName": "com.myntra.android",
+        "status": true
+    }
+]
