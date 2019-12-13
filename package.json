@@ -19,7 +19,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.13",
     "path": "^0.12.7",
-    "validator": "^12.1.0"
+    "validator": "^12.1.0",
+    "morgan": "^1.9.1"
   },
   "devDependencies": {
     "morgan": "^1.9.1"
